@@ -1,0 +1,35 @@
+{
+  "name": "angular-input-match",
+  "version": "1.0.0",
+  "description": "Checks if one input matches another",
+  "main": "src/match.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "jasmine-core": "~2.1.2",
+    "karma": "~0.12.28",
+    "karma-chrome-launcher": "~0.1.5",
+    "karma-jasmine": "~0.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start test/karma.conf.js --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TheSharpieOne/angular-input-match.git"
+  },
+  "keywords": [
+    "Angular",
+    "Form",
+    "input",
+    "match",
+    "validation"
+  ],
+  "author": "TheSharpieOne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheSharpieOne/angular-input-match/issues"
+  }
+}
