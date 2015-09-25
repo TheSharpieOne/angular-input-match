@@ -349,4 +349,41 @@ describe('Directives: validation - match', function() {
       });
 
     });
+
+    describe('Form level validation', function() {
+        var form,
+        element,
+        inputValue = 1234567890;
+
+        beforeEach(function() {
+            element = angular.element(
+                '<form name="form">' +
+                '<input type="number" ng-model="test" name="test"></input>' +
+                '<input type="number" match="form.test" ng-model="testConfirm" name="testConfirm"></input>' +
+                '</form>'
+            );
+            $scope.test = inputValue;
+            $compile(element)($scope);
+            $scope.$digest();
+            form = $scope.form;
+        });
+
+        it('should check if $viewValues are identical', function() {
+            form.testConfirm.$setViewValue(inputValue);
+            $scope.$digest();
+            expect(form.testConfirm.$error.match).to.be.undefined();
+        });
+
+        it('should check if $viewValues are not identical', function() {
+            form.testConfirm.$setViewValue(inputValue + 1234567890);
+            $scope.$digest();
+            expect(form.testConfirm.$error.match).to.be.true();
+        });
+
+        it('should set $modelValue undefined if $viewValues are not identical', function() {
+            form.testConfirm.$setViewValue(inputValue + 1234567890);
+            $scope.$digest();
+            expect(form.testConfirm.$modelValue).to.be.undefined();
+        });
+    });
 });
