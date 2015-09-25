@@ -32,7 +32,7 @@ function match ($parse) {
               if(caselessGetter(scope)){
                 value = angular.lowercase(ctrl.$viewValue) === angular.lowercase(match);
               }else{
-                value = ctrl.$viewValue === match;
+                value = ctrl.$viewValue == match;
               }
               value ^= notMatch;
               return !!value;
